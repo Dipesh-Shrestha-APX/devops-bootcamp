@@ -1,0 +1,24 @@
+1) deployment frequency:
+ total_deployments_in_month/working_days_in_month
+
+ 40/20 = 2
+
+2) lead time for changes
+  = 3 hours (given as time from commit to production as average)
+
+3) change failure rate
+ =  failure/total deploy *100%
+  6/40*100 = 15%
+
+4) MTTR (mean time to recover)
+= Sum of total time to recover/ no. of times recovery occurred
+= 90+45+120+240+30+240 mins/6 = 127.5mins
+
+5) dora guidelines 
+more than 1 deployment per day : elite
+lead time for change < day
+: elite
+change failure rate <= 15%
+: elite
+mttr = 127.5 mins = 2 hr 7.5 mins
+: highs

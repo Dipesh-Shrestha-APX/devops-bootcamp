@@ -1,0 +1,13 @@
+Linux basics 100 commands :
+
+1:25:00
+
+dnf list installed
+dnf list available (to list the available packages)
+
+Q) 
+How to start stop services(app runs as services)
+systemctl start/stop service_name
+
+Q)
+systemctl status firewall.servcie
