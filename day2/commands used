@@ -1,0 +1,22 @@
+TASK 1:
+
+mkdir to make directories
+cd to change directories
+touch to create a file
+cp to copy files
+ls -a to list the hidden files and folders
+
+
+TASK 2:
+
+sudo dnf install htop:
+ to install the htop
+
+htop:
+ to use the htop i.e. to see the process and it's cpu consumption and such
+
+dnf list installed | grep nginx:
+ to check whether nginx is installed or not
+
+dnf list installed > listPackages.txt:
+ to list all the packages installed and direct the output to the listPackages.txt file
