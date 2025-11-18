@@ -1,0 +1,72 @@
+
+
+
+#) Research and Automation Metrics:
+
+deployment frequency: code to production
+lead time for change: time for commit to prod
+Mean time to recovery: Monitoring strength, SLA, SLO 
+Change failure rate: deployment errors || issue with testing principles and compliances
+
+#) Documentation how to do it:
+
+CASE Study type of documentation
+	need: to make stakeholders understand the high level overview
+	1) intro
+	2) problem statement: why this case study is done
+	3) the solution: 
+		arch diagram
+			flow description
+	4) key metrices
+	5) TCO(total cost optimization) analysis
+	6) conclusion
+
+
+bugs and patching
+
+tree to see the hierarchy
+
+##) basics:
+------------
+ls cd mkdir rm cp mv 
+cat less head tail 
+find grep which 
+ps top kill 
+ping curl wget netstat
+
+
+zsh: autocomplete autocorrect repos implementation
+
+*) real time logs:
+	tail -f /var/log/a.log
+	how many  to watch and such
+
+ps aux
+htop top >> to watch the cpu and processes
+ping 
+	>> it allows the ping only when the icmp port 
+	is allowed on the destination 
+
+curl	>> can send http request to the apis and such
+wget	>> download
+find	>> to find files in the folder recursively
+ e.g. find devops/ -name "*.log"
+
+telnet >> to test connectivity to specific ports
+	telnet ip_address port_no
+
+hardlink and softlink to files
+	ll for softlink 
+		sym links created
+
+ec2 ppk pem file 400 permission
+
+mostly secrets is given 600
+
+
+!!!!
+for the html of /var/www/html
+chown www-data:www-data is only given likewise for the nginx
+
+
+
