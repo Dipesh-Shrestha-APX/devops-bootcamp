@@ -1,0 +1,98 @@
+
+first of all i switched to root to avoid giving password all the time
+
+TASK 1
+
+1)to create the user i used
+=> 
+useradd ram
+useradd hari
+useradd gita
+
+2)to create two groups
+groupadd devteam
+groupadd deployers
+
+3)add users to group
+usermod -aG devteam ram
+usermod -aG devteam hari
+usermod -aG devteam gita
+usermod -aG deployers deploy
+
+TASK 2:
+1) to create directory
+2) to create subdirectories
+mkdir -p /var/www/project/source
+mkdir -p /var/www/project/logs
+mkdir -p /var/www/project/scripts
+mkdir -p /var/www/project/shared
+
+TASK 3:
+1) set permission :
+ -only members of devteam to enter and modify source/
+ -group ownership and sgid for inherits
+ -umask every member of devteam with 002
+
+ chgrp devteam source
+ chmod 770 source
+ ------------
+ chmod g+s source
+ ----------------
+ cd /etc/profile.d 
+ vi devteam-umask.sh 
+  ===
+    if id -nG "$USER" | grep -qw "devteam"; then umask 002
+    fi 
+
+----------------------
+2) logs 
+-everyone in devteam can append
+-no can delete or modigy other's logs - sticky bit
+
+chgrp devteam logs
+chmod 775 logs
+--------------
+chmod o+t logs
+ 
+ 3) root created deploy.sh in scripts folders only to be executed by the deploy user
+
+ I did the solution of using the ACLs
+ i found the linux doesn't allow to run shell scripts posing as the root so the 
+ suid is useless (used the ACLs the umask didn't work cause changign /etc/.bashrc is global and changing ~/.bashrc is user specific needed ACLs for the group one)
+
+ setfacl -m u:deploy:rw deploy.sh
+  there is need to read the lines of the script and execute so this is done 
+
+  4) shared folder 
+  all devteam can read and write 
+  setgid fo this to devteam as well
+
+  chgrp devteam shared
+  chmod 775 shared
+  -----
+  chmod g+s shared
+
+TASK 4
+
+1 devteam members auto umask when login already done in task 3.1
+
+TASK 5
+testing
+  ram can create in shared folder and 
+  folder and file will have ownership of devteam group and permission on them will be 664 and 775 =
+
+  found:: TRUE
+
+---
+ gita can't delete file created by ram in logs:
+
+  found :: TRUE
+
+----
+ user deploy can execute the deploy.sh despite not being owner:
+
+
+ found :: TRUE 
+ using ACLs the linux doesnt allow the users to pose as the root to execute the shell scripts 
+
+ 
