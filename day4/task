@@ -1,0 +1,5 @@
+Assignment 3: A DevOps Engineer wants to track the top CPU-consuming process.
+Tasks:
+ Write a script that:
+Identifies the PID using the most CPU
+Logs its PID, process name, and CPU usage to cpu_report.txt

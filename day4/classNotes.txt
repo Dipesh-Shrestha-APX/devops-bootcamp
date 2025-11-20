@@ -1,0 +1,48 @@
+XSEDE presentation
+
+bash scripting:
+----------------
+
+gcc
+script
+  interpreted
+
+used for automation
+cd 
+
+
+.bashrc 
+  aliasing
+  tf = terraform
+
+interactive and non-interactive shells
+
+subshell
+
+VARIABLEs:
+  case sensitive
+global and local VARIABLEs (subshell and current shell)
+
+variables inheritance
+
+source test.sh 
+e.g.
+ helps to update the new environment variable
+
+ echo $PATH
+ echo $HOME
+ ehco $PWD
+
+ Quotatations
+  single, double, back
+
+  application dependent on usage :
+    e.g. SECRETs case
+
+  special characters
+  arithmetic operationas
+  floating point operations 
+  array operations
+  flow control
+    conditionals, loops, file operations, 
+  functions
