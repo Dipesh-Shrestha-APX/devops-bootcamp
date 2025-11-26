@@ -1,0 +1,31 @@
+branching strategy in organization
+email:
+  praman
+  saugattiwari@adex.ltd
+
+note: saugat86/CloudSathi
+
+day 1:
+
+  Most important :
+    git rebase Vs git merge
+    cherry pick
+
+  commit's formal message format
+    lasius-mcp-gateway/.husky (controls the format requirements of the commit message)
+    e.g: 
+      feat: add AWS CUR integration via Athena
+      ci:
+      fix:
+      docs:
+    e.g:
+      -where KAN-1 is the ticket from the project management
+      KAN-1 fix: 
+      -can auto update the KAN-1 ticket info in dashboard
+
+  git commit w/o -m
+pylink linkedin  linter?? in python>>>
+
+GIT BEST PRACTICES:
+  branching strategy
+  pre commit rules
