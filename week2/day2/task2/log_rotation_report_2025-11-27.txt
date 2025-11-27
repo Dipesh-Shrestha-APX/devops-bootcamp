@@ -1,0 +1,3 @@
+Old logs older than 30 days have been removed
+New log file for today has been created
+Yesterday's log has been compressed
