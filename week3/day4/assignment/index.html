@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Dipesh Shrestha</title>
+  <style>
+    :root{--accent:#06b6d4;--bg:#0f172a;--card:#0b1220;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:linear-gradient(180deg,#071024 0%, #071a2b 100%);color:#e6eef8;line-height:1.5}
+    .container{max-width:980px;margin:48px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:18px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    .about small{color:var(--muted)}
+    .gallery{display:flex;flex-direction:column;gap:12px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:10px;display:block}
+    .actions{display:flex;gap:12px;margin-top:14px}
+    .btn{background:var(--accent);color:#042028;padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#d7e8f0}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    footer{margin-top:28px;color:var(--muted);font-size:0.9rem;text-align:center}
+    @media (max-width:880px){.hero{grid-template-columns:1fr} .gallery img{height:220px} .projects{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">DS</div>
+        <div>
+          <h1>Dipesh Shrestha</h1>
+          <p class="lead">DevOps Engineer · AI/ML · Cloud</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#contact" style="text-decoration:none">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card about">
+        <h2>About me</h2>
+        <p><small>I build neat, responsive web interfaces and enjoy turning ideas into clean code. I work with CI/CD pipelines and develop solutions for the AI/ML clients.</small></p>
+
+        <div class="actions">
+          <!-- Download link (works if you place a file at /assets/CV.pdf on your server) -->
+          <a class="btn" href="./assets/Dipesh_Shrestha_CV.pdf" download="Dipesh_Shrestha_CV.pdf">Download CV (static)</a>
+
+          <!-- Dynamic-download button (works in-browser, creates a PDF-like text file and downloads it) -->
+          <button id="download-cv-js" class="btn secondary">Download CV (generated)</button>
+        </div>
+
+        <h3 style="margin-top:18px">Skills</h3>
+	<ul>
+	  <li>DevOps (Docker, Kubernetes, CI/CD)</li>
+	  <li>Cloud Platforms (AWS / Azure / GCP)</li>
+	  <li>AI/ML Model Training & Deployment</li>
+	  <li>Linux System Administration</li>
+	  <li>Monitoring & Automation (Prometheus, Grafana, Ansible)</li>
+	</ul>
+
+        <h3 style="margin-top:14px">Selected projects</h3>
+        <div class="projects">
+          <div class="project">
+            <strong>Project A</strong>
+            <p class="muted">Built a cloud-deployed AI/ML monitoring dashboard with vanilla JS, Dockerized backend, and CI/CD pipelines.
+	    </p>
+          </div>
+          <div class="project">
+            <strong>Project B</strong>
+            <p class="muted">Developed a cloud-ready AI/ML portfolio UI with accessible components, containerized deployment, and Terraform-managed infrastructure.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="card">
+        <h3>Gallery</h3>
+        <div class="gallery">
+          <!-- Two images as requested -->
+          <img src="./assets/images/image1.jpg" alt="Workspace with laptop and coffee">
+          <img src="./assets/images/image2.jpg" alt="Coding on a laptop">
+        </div>
+
+        <h4 style="margin-top:14px">Contact</h4>
+        <p style="margin:6px 0"><small>Email: <a href="mailto:deepeshpixar123@gmail.com">deepeshpixar123@gmail.com</a></small></p>
+        <p style="margin:6px 0"><small>Location: Kathmandu, Nepal</small></p>
+
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Dipesh Shrestha · Built with ❤️
+    </footer>
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple CV content (plain text) to download when user clicks generated download button
+    document.getElementById('download-cv-js').addEventListener('click', function(){
+      const cvText = `Your Name\nFrontend Developer\n\nContact: you@example.com\n\nExperience:\n- Frontend Dev at Example Co (2023 - present)\n- Intern at Startup (2022)\n\nSkills:\nHTML, CSS, JavaScript, React, Responsive Design\n\nEducation:\nBSc in Computer Science - University Name\n\nReferences available on request.`;
+
+      // Convert plain text into a Blob and download as .txt (or .pdf if you replace with proper PDF bytes)
+      const blob = new Blob([cvText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Dipesh_Shrestha_CV.txt';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
