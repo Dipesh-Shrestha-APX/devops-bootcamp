@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  nginx:
+    image: 'nginx:1.28.0'
+    ports: 
+      - '8010:80'
+    container_name: 'compose_based_nginx'
+    volumes:
+      - /home/dipesh/week3/day3/docker_task/myLocalVol:/usr/share/nginx/html

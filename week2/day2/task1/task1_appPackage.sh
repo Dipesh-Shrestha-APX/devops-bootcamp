@@ -37,7 +37,7 @@ else
 fi
 
 ##### Create a checksum of the tarball #####
-sha256sum test-app.tar.gz > test-app.tar.gz.checksums   
+sha256sum test-app.tar.gz > test-app.tar.gz.sha256sum   
 log_report "Checksum has been created for the tarball"
 
 ##### Output the path of the tarball and checksum #####
