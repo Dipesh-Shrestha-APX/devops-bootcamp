@@ -27,8 +27,7 @@ pipeline{
     }
     stage('SSH Key Access'){
       steps{
-        sh 
-        '''
+        sh '''
           touch myKey.pem 
           echo $SSH_KEY64 | base64 -d> myKey.pem 
           chmod 400 myKey.pem
@@ -38,8 +37,7 @@ pipeline{
     }
     stage('Deploy Code to Server'){
       steps{
-        sh
-        '''
+        sh '''
           ssh -t ec2-user@$${params.SERVER_IP} -i myKey.pem 'cd /usr/share/n ginx/html && git pull origin main'
         '''
       }
