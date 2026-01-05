@@ -44,7 +44,7 @@ pipeline {
                 // Use triple double quotes for Groovy interpolation
                 sh """
                     ssh -i /tmp/jenkins_keys/myKey.pem ec2-user@${params.SERVER_IP} \
-                        "cd /var/www/html && git pull"
+                        "cd /usr/share/nginx/html && git pull"
                 """
             }
         }
