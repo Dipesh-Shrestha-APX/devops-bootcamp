@@ -6,7 +6,7 @@ pipeline{
   //   }
   // }
   agent any
-  
+
   environment{
     SSH_KEY64= credentials('SSH_KEY64')
   }
@@ -34,9 +34,9 @@ pipeline{
     stage('SSH Key Access'){
       steps{
         sh '''
-          touch myKey.pem 
-          echo $SSH_KEY64 | base64 -d> myKey.pem 
-          chmod 400 myKey.pem
+          mkdir -p /tmp/jenkins_keys
+          echo "BASE64_STRING" | base64 -d > /tmp/jenkins_keys/myKey.pem
+          chmod 600 /tmp/jenkins_keys/myKey.pem
           ssh-keygen -R ${params.SERVER_IP}
         '''
       }
