@@ -35,7 +35,7 @@ pipeline{
       steps{
         sh '''
           mkdir -p /tmp/jenkins_keys
-          echo "BASE64_STRING" | base64 -d > /tmp/jenkins_keys/myKey.pem
+          echo $SSH_KEY64 | base64 -d > /tmp/jenkins_keys/myKey.pem
           chmod 600 /tmp/jenkins_keys/myKey.pem
           ssh-keygen -R ${params.SERVER_IP}
         '''
