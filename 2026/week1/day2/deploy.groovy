@@ -43,7 +43,7 @@ pipeline{
     stage('Deploy Code to Server'){
       steps{
         sh '''
-          ssh -t ec2-user@$${params.SERVER_IP} -i myKey.pem 'cd /usr/share/n ginx/html && git pull origin main'
+          ssh -t ec2-user@${params.SERVER_IP} -i myKey.pem 'cd /usr/share/n ginx/html && git pull origin main'
         '''
       }
     }
